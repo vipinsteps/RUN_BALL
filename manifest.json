@@ -1,6 +1,6 @@
 {
-  "name": "Ceratizit Ball Nose Calculator",
-  "short_name": "CeratizitCalc",
+  "name": "RUN_BALL Calculator",
+  "short_name": "RUN_BALL",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",

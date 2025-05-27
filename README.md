@@ -1,17 +1,14 @@
-# MuvBall PWA - Ceratizit Ball Nose Calculator
+# RUN_BALL - Ceratizit Calculator (PWA)
 
-This is a Progressive Web App for the MuvBall cutting tool calculator.
+This is a fully functional Progressive Web App (PWA) for the Ceratizit ball nose tool calculator.
 
-## Hosting Instructions:
-1. Upload all files from this ZIP to a GitHub repo (e.g., MuvBall).
-2. Enable GitHub Pages: Settings > Pages > Source: main, folder: root.
-3. Your app will be live at:
-   https://yourusername.github.io/MuvBall/
+## How to host it:
 
-Users can 'Add to Home Screen' on mobile or install on desktop.
+1. Create a GitHub repo called `RUN_BALL`.
+2. Upload all files from this ZIP to the root.
+3. Go to Settings > Pages.
+4. Set branch to `main`, folder to `/root`.
+5. GitHub will publish it at:
+   https://yourusername.github.io/RUN_BALL/
 
-Files included:
-- index.html
-- manifest.json
-- service-worker.js
-- logo192.png
+Mobile and desktop users can 'Add to Home Screen' or install it.

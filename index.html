@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MuvBall Calculator</title>
+  <title>RUN_BALL - Ceratizit Calculator</title>
   <link rel="manifest" href="manifest.json">
   <script>
     if ("serviceWorker" in navigator) {
@@ -13,7 +13,59 @@
   </script>
 </head>
 <body>
-  <h1>MuvBall - Ceratizit Calculator</h1>
-  <p>This placeholder represents your full HTML calculator.</p>
+  <h1>RUN_BALL Calculator</h1>
+  <label>Material</label>
+  <select id="material">
+    <option value="PREHARDEN(40HRC)">PREHARDEN(40HRC)</option>
+    <option value="SKD 61(48HRC)">SKD 61(48HRC)</option>
+    <option value="SUS QUENCHING(52HRC)">SUS QUENCHING(52HRC)</option>
+    <option value="SKD 11(60HRC)">SKD 11(60HRC)</option>
+    <option value="COPPER">COPPER</option>
+    <option value="ALUMINIUM">ALUMINIUM</option>
+  </select>
+  <label>Operation</label>
+  <select id="operation">
+    <option value="ROUGHING">Roughing</option>
+    <option value="FINISHING">Finishing</option>
+  </select>
+  <label>Cutter Dia</label>
+  <select id="cutter">
+    <option value="2">2</option><option value="4">4</option><option value="6">6</option>
+    <option value="8">8</option><option value="10">10</option><option value="12">12</option>
+  </select>
+  <label>L/D Ratio</label>
+  <select id="ld">
+    <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+  </select>
+  <button onclick="calculate()">Calculate</button>
+  <div id="output" style="margin-top:20px;"></div>
+
+  <script>
+    const data = {
+      "PREHARDEN(40HRC)ROUGHING23": { "dia": 2, "ap": 0.4, "ae": 0.2, "rpm": 4000, "feed": 600 },
+      "SKD 61(48HRC)FINISHING83": { "dia": 8, "ap": 0.3, "ae": 0.15, "rpm": 8000, "feed": 900 },
+      "ALUMINIUMROUGHING43": { "dia": 4, "ap": 0.5, "ae": 0.3, "rpm": 12000, "feed": 1500 },
+      "COPPERFINISHING64": { "dia": 6, "ap": 0.25, "ae": 0.1, "rpm": 9500, "feed": 1100 }
+    };
+
+    function calculate() {
+      const key = document.getElementById("material").value +
+                  document.getElementById("operation").value.toUpperCase() +
+                  document.getElementById("cutter").value +
+                  document.getElementById("ld").value;
+
+      const result = data[key];
+      const output = document.getElementById("output");
+      if (result) {
+        output.innerHTML = `<p><strong>Cutter Dia:</strong> ${result.dia}</p>
+                            <p><strong>Ap:</strong> ${result.ap}</p>
+                            <p><strong>Ae:</strong> ${result.ae}</p>
+                            <p><strong>RPM:</strong> ${result.rpm}</p>
+                            <p><strong>Feed:</strong> ${result.feed}</p>`;
+      } else {
+        output.innerHTML = "<p>No data found for the selected combination.</p>";
+      }
+    }
+  </script>
 </body>
 </html>
